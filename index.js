@@ -44,8 +44,10 @@ app.post('/api/phonebill/', async function(req, res){
 })
 });
 
-//app.use(express.static('public'))
-//app.use(express.json())
+app.use(express.static('public'))
+app.use(express.json())
+
+const PORT = process.env.PORT || 6002;
 
 app.get('/api/price_plans/', async function (req, res){
 const price_plans = await db.all('select * from price_plan');
